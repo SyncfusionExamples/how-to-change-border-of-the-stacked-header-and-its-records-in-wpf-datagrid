@@ -1,0 +1,51 @@
+﻿<Window
+    x:Class="SfDataGridDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:SfDataGridDemo"
+    Title="SfDataGrid Demo"
+    Icon="App.ico"
+    WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <local:StackedHeaderConverter x:Key="stackedHeaderConverter"/>
+        <local:HeaderConverter x:Key="headerConverter"/>
+        <local:CustomStyleSelector x:Key="cellStyleSelector"/>
+        <Style TargetType="Syncfusion:GridStackedHeaderCellControl">
+            <Setter Property="BorderThickness" Value="{Binding Converter={StaticResource stackedHeaderConverter}}"/>
+        </Style>
+        <Style TargetType="Syncfusion:GridHeaderCellControl">
+            <Setter Property="BorderThickness" Value="{Binding Converter={StaticResource headerConverter}}"/>
+        </Style>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <local:ViewModel />
+    </Window.DataContext>
+
+    <Grid>
+
+        <Syncfusion:SfDataGrid Name="sfdatagrid"
+                               AllowEditing="True" AllowFiltering="True" 
+                               CellStyleSelector="{StaticResource cellStyleSelector}"
+                               ItemsSource="{Binding EmployeeDetails}">
+            <Syncfusion:SfDataGrid.StackedHeaderRows>
+                <Syncfusion:StackedHeaderRow>
+                    <Syncfusion:StackedHeaderRow.StackedColumns>
+                        <Syncfusion:StackedColumn ChildColumns="EmployeeID,EmployeeName" HeaderText="Employee Details"/>
+                        <Syncfusion:StackedColumn ChildColumns="EmployeeAge,EmployeeSalary" HeaderText="Other Details"/>
+                    </Syncfusion:StackedHeaderRow.StackedColumns>
+                </Syncfusion:StackedHeaderRow>
+            </Syncfusion:SfDataGrid.StackedHeaderRows>
+            <Syncfusion:SfDataGrid.Columns>
+                <Syncfusion:GridTextColumn MappingName="EmployeeID"/>
+                <Syncfusion:GridTextColumn MappingName="EmployeeName"/>
+                <Syncfusion:GridTextColumn MappingName="EmployeeAge"/>
+                <Syncfusion:GridTextColumn MappingName="EmployeeSalary"/>
+            </Syncfusion:SfDataGrid.Columns>
+        </Syncfusion:SfDataGrid>
+        
+    </Grid>
+</Window>
