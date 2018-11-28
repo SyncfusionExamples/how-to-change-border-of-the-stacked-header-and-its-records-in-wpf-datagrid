@@ -1,0 +1,17 @@
+﻿<Application x:Class="SfDataGridDemo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Syncfusion:GridCell" x:Key="gridCellStyle1">
+            <Setter Property="BorderThickness" Value="3,0,1,1"/>
+        </Style>
+        <Style TargetType="Syncfusion:GridCell" x:Key="gridCellStyle2">
+            <Setter Property="BorderThickness" Value="0,0,3,1"/>
+        </Style>
+        <Style TargetType="Syncfusion:GridCell" x:Key="gridCellStyle3">
+            <Setter Property="BorderThickness" Value="3,0,3,1"/>
+        </Style>
+    </Application.Resources>
+</Application>
