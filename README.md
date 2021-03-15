@@ -1,4 +1,4 @@
-# How to change border of the stacked header and its records in wpf datagrid?
+# How to change border of the stacked header and its records in WPF DataGrid (SfDataGrid)?
 
 This example illustrates how to change border of the stacked header and its records in [WPF DataGrid](https://www.syncfusion.com/wpf-ui-controls/datagrid) (SfDataGrid).
 
